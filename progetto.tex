@@ -54,6 +54,7 @@
 %%% The "real" document content comes below...
 
 \usepackage{tabulary}
+\usepackage{pgfgantt}
 
 \newcommand{\AnalisiSituazioneAttualeTabella}[5]{
 	\begin{tabulary}{\textwidth}{|C|C|}
@@ -75,42 +76,45 @@
 \begin{document}
 \maketitle
 
-\section{Introduzione}
-
-Il nostro obiettivo è quello di rendere più funzionale e pratica la gestione della piscina olimpica di Riccione.
-
-Attualmente la gestione degli inscritti è ancora manuale, il che comporta lente e ripetitive operazionali manuali riguardanti la collezione delle quote associative, il rinnovo delle tessere e l'inscrizione di nuovi soci.
-
-La piscina olimpica è la piscina usata dagli altleti della nazionale durante gli ordinari allenamenti, ma spesso sorgono conflitti tra le necessità di allenamento degli altleti e la fruizione della piscina da parte dei normali utenti.
-
-La piscina, essendo una delle più grandi in italia, è spesso luogo designato per ospitare varie manifestazioni, l'operazione di prenotazione della struttura però è ancora manuale. 
-La prenotazione deve essere fatta almeno due mesi prima dell'evento, in oltre non ci devono essere conflitti con le necessittà della FIN, ovviamente la piscina deve essere libera e prima di confermare la prenotazione si attende l'acconto della caparra.
-
-
-
 \section{Obiettivi (B)}
 
-Il nostro applicativo quindi si svilupperà in modo tale da risolvere le tre principali criticità analizzate nella Introduzione.
+L'obbiettivo del nostro progetto è quello di migliorare il sistema informativo già esistente della piscina di Riccione apportando buove funzionalità al sistema.
 
-Parte del sistema informativo verrà finanziata da ACQUALIS, nota società di distribuzione di prodotti relativi al nuoto, che a fronte dell'investimento richiede un accesso privileggiato ai fruitori della piscina.
+L'intervento si concentrerà su:
 
 \begin{enumerate}
-	\item Semplice ed automatica gestione degli inscritti con automatico rinnovo delle quote via pagamento online.  
+	\item Gestione degli iscritti, automatizzando le procedure di rinnovo della quota associativa
+	\item Gestione delle corsie della piscina, permettendo la prenotazione delle corsie in modo da evitare sovraffollamento
+	\item Gestione degli eventi, automatizzando la procedura di affitto della intera struttura per eventi
+\end{enumerate}
 
+L'applicattivo avrà funzionalità di sostegno ai reparti: Amministrazione Attività Sportive,  Gestione Finanze e Rapporti con Enti Esterni.
+
+
+
+\section{Introduzione}
+
+
+La piscina è utilizzata dagli atleti olimpici della Federazione Italiana Nuoto (FIN) durante gli ordinari allenamenti ed essendo una delle migliori in Italia è spesso luogo designato per ospitare varie manifestazioni.
+
+Parte del costo del sistema informativo verrà abbattuto tramite una partership con ACQUALIS, nota società di distribuzione di prodotti relativi al nuoto.
+
+La partership prevederà l'introduzione di uno store all'interno del portale web della piscina dedicato esclusivamente ai prodotti ACQUALIS.
+
+Si vogliono introdurre diverse funzionalità:
+\begin{enumerate}
+	\item Semplice ed automatica gestione degli iscritti con automatico rinnovo delle quote via pagamento online. 
 	\item Possibilità di prenotare corsie per gli allenamenti, sia da parte della FIN che da parte dei normali fruitori della piscina.
-
 	\item Possibilità di prenotare l'intera struttura per manifestazioni ed eventi.
-
-	\item Creazione di store online per permettere ad ACQUALIS di raggiungere i propri clienti in modo efficacie.
-
+	\item Creazione di store online integrato di ACQUALIS.
 \subsection{Stackeholder}
 
 \begin{itemize}
 	\item Ente gestore della piscina
 	\begin{itemize}
-		\item Gestore Eventi
-		\item Gestore Finanze
-		\item Personale amministrativo
+		\item Amministrazione Attività Sportive
+		\item Gestione Finanze
+		\item Rapporti con Enti Esterni
 	\end{itemize}
 	\item FIN
 	\begin{itemize}
@@ -122,35 +126,42 @@ Parte del sistema informativo verrà finanziata da ACQUALIS, nota società di di
 	\item ACQUALIS
 \end{itemize}
 
+
+\section{Background}
+
+Il sistema informativo della piscina è limitato a pochi personal computer con semplice gestione di basi di dati da suite di automazione.
+
+Il sistema è gia integrato con un centro medico della zona che gestisce le visite mediche degli atleti.
+
 \end{enumerate}
 
 \section{Analisi della situazione attuale}
 
 \AnalisiSituazioneAttualeTabella
-	{Area Rapporti con il Pubblico}
-	{Gestione degli inscritti alla piscina, controlli sul pagamento delle quote e rinnovo dei pagamenti}
+	{Amministrazione Attività Sportive}
+	{Gestione degli iscritti alla società, controlli sul pagamento delle quote e rinnovo dei pagamenti}
 	{Computer con suite di office automation}
-	{Ad inizio settimana a tutti gli inscritti a cui scaderà la quota entro la fine della settimana viene mandata una email ricordando di pagare la quota di persona in piscina}
-	{Automaticamente rinnovare la quota di iscrizione con pagamenti in via telematica}
+	{Ad inizio settimana a tutti gli iscritti a cui scaderà la quota entro la fine della settimana viene mandata una email ricordando di pagare la quota di persona in piscina}
+	{Rinnovo della quota di iscrizione con possibilità di pagamenti in via telematica}
 
 \AnalisiSituazioneAttualeTabella
-	{Area Organizzazione Interna}
+	{Amministrazione Attività Sportive e Rapporti con Enti Esterni}
 	{Gestione dei turni per la fruizione delle corsie di allenamento}
 	{Nessun sistema informatico.}
 	{I bagnini decidono autonomamente come allocare le corsie bilanciando i vari bisogni del momento.}
-	{Possibilità di prenotazione delle corsie in anticipo così da permettere alla FIN di allenarsi in modo consistente e continuo, evitare il sovraffolamento della piscina.}
+	{Possibilità di prenotazione delle corsie in anticipo via web così da evitare il sovraffolamento della piscina e permettere alla FIN di allenarsi in modo consistente e continuo.}
 
 \AnalisiSituazioneAttualeTabella
-	{Area Eventi Straordinari}
+	{Rapporti con Enti Esterni}
 	{Gestione, organizazione e supporto di grandi eventi}
 	{Suite di office automation}
-	{Tutti i contatti sono gestiti dal personale amministrativo che dopo una richiesta di prenotazione via email controlla che la data sia disponibile, in caso affermativo richiede il pagamento di una caparra e, a pagamento avvenuto, alloca la struttura per la data richiesta.}
-	{Automatizzare il processo di prenotazione della struttura.}
+	{Tutti i contatti sono gestiti dal personale amministrativo che dopo una richiesta di prenotazione via email controlla che la data sia disponibile, in caso affermativo richiede il pagamento di una caparra e, a pagamento avvenuto, alloca la struttura per la data richiesta. Viene quindi affisso un cartello in bacheca indicando la data in cui tutta la struttura è prenotata e inagibili per i normali fruitori.}
+	{Automatizzare il processo di prenotazione della struttura e invio automatico di comunicazione telematica ai soci della società per comunicare l'inagibilità nel giorno programmato.}
 
 \AnalisiSituazioneAttualeTabella
-	{Area Rapporti con Esterni}
+	{Rapporti con Enti Esterni}
 	{Gestione dei rapporti con ACQUALIS}
-	{Nessuna, lo sviluppo del sistema informativo rappresenta l'inizio della collaborazione tra la l'Ente della piscina e ACQUALIS}
+	{Nessuna, lo sviluppo del sistema informativo rappresenta l'inizio della collaborazione tra la società e ACQUALIS}
 	{Nessuna}
 	{Creare un store web-based dove i fruitori della piscina possono accedere ai prodotti offerti da ACQUALIS}
 
@@ -159,10 +170,13 @@ Parte del sistema informativo verrà finanziata da ACQUALIS, nota società di di
 I problemi riscontrati al momento sono:
 
 \begin{itemize}
-
-	\item Operazione amministrative svolte in modo lento, ripetitivo e prono ad errori e non integrata.
+	\item Sovraffolamento della piscina con utenze concentrate in pochi particolari orari
 	\item Conflitti tra i privati fruitori della piscina e la FIN per l'uso delle corsie di allenamento.
-
+	\item Operazione amministrative svolte in modo lento, ripetitivo, prono ad errori e non integrato.
+	\begin{itemize}
+		\item Problemi di integrazione tra le manifestazioni e il normale utilizzo della piscina
+		\item Lentezza nel riscuotere le quote associative
+	\end{itemize}
 \end{itemize}
 
 \section{Soluzione proposta}
@@ -170,18 +184,26 @@ I problemi riscontrati al momento sono:
 Proponiamo lo sviluppo di applicativi web-based per:
 
 \begin{itemize}
-	\item Gestione automatica rinnovo quote inscrizione
-	\item Allocazione automatica delle corsie di allenamento
+	\item Gestione rinnovo quote
+	\item Possibilità di prenotazione di posti nelle corsie di allenamento
 	\item Automatizzazione per la prenotazione della intera struttura
-	\item Shop online a servizio dei membri della piscina gestito da ACQUALIS
-\end{itemize}	
+	\item Store ACQUALIS dedicato ai membri della piscina
+\end{itemize}
 
 \section{Driver (B)}
 
 \section{Struttura dell' organizzazione (O)}
 
 \section{Requisiti funzionali}
-% con tabelle
+
+\begin{enumerate}
+	\item La società richiede periodicamente ai soci il rinnovo delle quote associative via email, i soci pagano online oppure alla segreteria.
+	\item La società dispone di un portale web dove i fruitori della piscina devono prenotarsi per sfruttare le corsie.
+	\item La società dispone di un portale web nel quale è possibile noleggiare l'intera struttura per un periodo, vengono forniti gli estremi per il pagamento della caparra e finalizzata la prenotazione.
+	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
+\end{enumerate}
+
+
 
 \section{Requisiti Non funzionali}
 
@@ -199,6 +221,24 @@ Proponiamo lo sviluppo di applicativi web-based per:
 %sicurezza, performace, usabilità
 
 \section{Gantt}
+
+% studio di fattibilità 11gg
+% pianificazione 13gg
+% identificazione e analisi requisiti 15gg
+% definizione architettura 12gg
+% implementazione 30gg
+%definizione UI|UX 11gg
+% implementazione UI|UX 30gg
+% testing 12gg
+% sviluppo ambiente 6gg
+% gestione possibili cambiamenti 20gg
+% gestione progetto 118gg
+
+%\begin{ganttchart}{1}{12}
+%	\gantttitle{2016}{52} \\
+%	\gantttitlelist{1,...,52}{1} \\
+%	\ganttgroup{Group 1}{1}{7} \\
+%\end{ganttchart}
 
 \section{Architettura}
 %disegno
