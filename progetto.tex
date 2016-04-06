@@ -192,6 +192,21 @@ Proponiamo lo sviluppo di applicativi web-based per:
 
 \section{Driver (B)}
 
+La adozione del sistema informativo è guidata da driver sia di efficacia che di efficienza.
+
+\subsection{Efficacia}
+
+La possibilità di prenotare posti e corsi di allenamento permette di evitare conflitti e malcontenti nel bordo vasca, oltre che permettere un più constante e continuo allenamento degli atleti della FIN
+
+\subsection{Efficienza}
+
+Molti features del Sistema Informativo migliorano l' efficienza della associazione.
+
+\begin{description}
+	\item[Automatica gestione del rinnovo delle quote:] la gestione informatizzata renderà molto più snello e veloce il lavoro del personale amministrativo, inoltre sarà possibile tenere meno soldi in cassa aumentando la sicurezza della struttura. 
+	\item[Automatica prenotazione della intera struttura:] la gestione informatizzata eviterà che il pesonale continui a rispondere a richieste di persone poco interessate e permetterà di concentrare le risorse solo per gli enti che hanno già pagato la caparra e riuscendo a garantire un servizio migliore.
+\end{description}
+
 \section{Struttura dell' organizzazione (O)}
 
 \section{Requisiti funzionali}
@@ -199,11 +214,48 @@ Proponiamo lo sviluppo di applicativi web-based per:
 \begin{enumerate}
 	\item La società richiede periodicamente ai soci il rinnovo delle quote associative via email, i soci pagano online oppure alla segreteria.
 	\item La società dispone di un portale web dove i fruitori della piscina devono prenotarsi per sfruttare le corsie.
-	\item La società dispone di un portale web nel quale è possibile noleggiare l'intera struttura per un periodo, vengono forniti gli estremi per il pagamento della caparra e finalizzata la prenotazione.
+	\item La società dispone di un portale web nel quale è possibile noleggiare l'intera struttura per un periodo di tempo limitato, vengono forniti gli estremi per il pagamento della caparra e finalizzata la prenotazione.
 	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
 \end{enumerate}
 
+\subsection{Requisiti funzionali Specifichi}
 
+\begin{enumerate}
+	\item La società richiede periodicamente ai soci il rinnovo delle quote associative via email, i soci pagano online oppure alla segreteria.
+	\begin{enumerate}
+		\item Ogni 24 ore uno script automatico viene lanciato in background
+		\item Le informazioni riguardanti i soci la cui quota è in scadenza vengono automaticamente ritrovate
+		\item Viene mandata una email richiedendo il rinnovo della quota con pagamento o telematico o manuale direttamente in sede
+		\item Il servizio web della segreteria viene aggiornato in modo tale da evidenziare i soci che devono ancora pagare la quota
+		\item Al pagamento della quota via online, il servizio web è automaticamente aggiornato per mostrare che il socio ha effettivamente rinnovato la quota
+		\item Al pagamento della quota in sede, il personale può marcare che il socio ha rinnovato la propria quota.
+	\end{enumerate}
+	\item La società dispone di un portale web dove i fruitori della piscina devono prenotarsi per sfruttare le corsie.
+	\begin{enumerate}
+		\item I soci della piscina possono accedere all'area web riservato del portale web in cui è possibile prenotare un posto in una corsia per allenamento
+		\item Il personale FIN può accedere all'interno della proprio area riservate del portale web in cui è possibile prenotare più corsie per gli allenamenti degli atleti
+		\item La compilazione della richiesta è guidata dal sistema e permessa dopo autenticazione.
+		\item I dati della prenotazione, previa verifica di disponibilità, sono automaticamente inseriti nel sistema
+		\item Viene inviata una email per ricordare l'avvenuta prenotazione
+		\item Personale autorizzato della società può consultare l'elenco delle prenotazioni per risolvere possibili equivoci a bordo vasca
+	\end{enumerate}
+	\item La società dispone di un portale web nel quale è possibile noleggiare l'intera struttura per un periodo di tempo limitato, vengono forniti gli estremi per il pagamento della caparra e finalizzata la prenotazione.
+	\begin{enumerate}
+		\item Il personale esterno qualificato che necessità di noleggiare la struttura può accedere ad un area del piattaforma web previa autenticazione
+		\item Il prezzo e la disponibilità della struttura sono mostrati in un interfaccia web
+		\item L'utente compila un questionario guidata dalla piattaforma
+		\item Il sistema comunica via email il costo totale per noleggio, la caparra dovuta e gli estremi del pagamento
+		\item Appena la caparra viene pagata il sistema registra la prenotazione
+	\end{enumerate}
+	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
+	\begin{enumerate}
+		\item I soci della società, previa autenticazione, hanno accesso ad uno store online fornito da ACQUALIS
+		\item Lo store si interfaccia via programmatica alla piattaforma di ACQUALIS la quale comunica i prodotti da mostrare, i prezzi e le quantità disponibili
+		\item All'acquisto di un prodotto il pagamento viene gestito completamente da ACQUALIS
+		\item Dopo l'acquisito viene richiesto se si preferisce ricevere il prodotto a casa o direttamente in piscina, tale richiesta viene inoltrata ad ACQUALIS
+		\item Nel caso in cui venga deciso di ricevere il prodotto in piscina, il personale viene avvertito e tiene in consegna il prodotto finchè il socio non lo richiede.
+	\end{enumerate}
+\end{enumerate}
 
 \section{Requisiti Non funzionali}
 
