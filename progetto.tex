@@ -79,14 +79,14 @@
 }
 
 \title{Fattibilità e Vision}
-\author{The Author}
+\author{Simone Mosciatti \& Gabriele Giudici}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
 \maketitle
 
-\section{Obiettivi (B)}
+\section{Obiettivi}
 
 L'obbiettivo del nostro progetto è quello di migliorare il sistema informativo già esistente della piscina di Riccione apportando buove funzionalità al sistema.
 
@@ -96,6 +96,7 @@ L'intervento si concentrerà su:
 	\item Gestione degli iscritti, automatizzando le procedure di rinnovo della quota associativa
 	\item Gestione delle corsie della piscina, permettendo la prenotazione delle corsie in modo da evitare sovraffollamento
 	\item Gestione degli eventi, automatizzando la procedura di affitto della intera struttura per eventi
+	\item Cooperazione con ACQUALIS per mantenere bassi i costi di sviluppo della applicazione.
 \end{enumerate}
 
 L'applicattivo avrà funzionalità di sostegno ai reparti: Amministrazione Attività Sportive,  Gestione Finanze e Rapporti con Enti Esterni.
@@ -117,7 +118,7 @@ Si vogliono introdurre diverse funzionalità:
 	\item Possibilità di prenotare corsie per gli allenamenti, sia da parte della FIN che da parte dei normali fruitori della piscina.
 	\item Possibilità di prenotare l'intera struttura per manifestazioni ed eventi.
 	\item Creazione di store online integrato di ACQUALIS.
-\subsection{Stackeholder}
+\subsection*{Stackeholder}
 
 \begin{itemize}
 	\item Ente gestore della piscina
@@ -141,7 +142,11 @@ Si vogliono introdurre diverse funzionalità:
 
 Il sistema informativo della piscina è limitato a pochi personal computer con semplice gestione di basi di dati da suite di automazione.
 
+La maggior parte delle operazioni viene effettuata a mano in modo lento e ripetitivo dal personale di segreteria.
+
+
 Il sistema è gia integrato con un centro medico della zona che gestisce le visite mediche degli atleti.
+
 
 \end{enumerate}
 
@@ -254,14 +259,6 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\item La società dispone di un portale web dove i fruitori della piscina devono prenotarsi per sfruttare le corsie.
 	\begin{enumerate}
 		\item \RequisitiSpecifici
-				{I soci della piscina possono accedere all'area riservata del portale web in cui è possibile prenotare un posto in una corsia per allenamento}
-				{Soci Iscritti}
-				{Login}
-		\item \RequisitiSpecifici
-				{Il personale FIN può accedere all'interno della proprio area riservate del portale web in cui è possibile prenotare più corsie per gli allenamenti degli atleti}
-				{Personale FIN}
-				{Login}
-		\item \RequisitiSpecifici
 				{La compilazione della richiesta è guidata dal sistema e permessa dopo autenticazione.}
 				{Soci Iscritti, Personale FIN}
 				{Prenotazione Corsie}
@@ -296,10 +293,6 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
 	\begin{enumerate}
 		\item \RequisitiSpecifici
-				{I soci della società, previa autenticazione, hanno accesso ad uno store online dedicato con prodotti forniti esclusivamente da ACQUALIS}
-				{Soci Iscritti}
-				{Login}
-		\item \RequisitiSpecifici
 				{Lo store si interfaccia in via telematica alla piattaforma di ACQUALIS la quale comunica i prodotti da mostrare, i prezzi e le quantità disponibili}
 				{Sistema Automatico, Soci Iscritti, ACQUALIS}
 				{Visulizzazione Prodotti}
@@ -326,7 +319,7 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\item[Efficienza] Massimo tempo di risposta ad ogni richiesta web 2sec, 90 percentile massimo a 0.5sec
 	\item[Efficacia] Netto snellimento delle pratiche burocratiche, riduzione dei conflitti nel piano vasca, riduzione del sovraffolamento.
 	\item[Robustezza] Possibile downtime programmato ogni giorno tra le 01:00 e le 02:00, affidabilità con 0.999 \%
-	\item[Sicurezza] Non memorizzazione di dati sensibile degli utenti
+	\item[Sicurezza] Non memorizzazione di dati sensibile degli utenti, numero di carta di credito, codice di sicurezza e data di scadenza sono informazioni maneggiate solo e soltanto da servizi esterni.
 	\item[Disponibilità] Servizio consultabile 24/7/365
 	\item[Usabilità] Usabilità da dispositivi mobile e fissi, massimo 6 click per raggiungere ogni funzione, massimo 2 click per raggiungere le 5 funzioni più usate. Compatibilità con i maggiori browser IE7, Chrome, Firefox, Opera.
 \end{description}
