@@ -65,8 +65,7 @@
 		Attività & #2 \\ \hline
 		Situazione informativa & #3 \\ \hline
 		Modalità operativa & #4 \\ \hline
-		Obiettivo & #5 \\
-		\hline
+		Obiettivo & #5 \\ \hline
 	\end{tabulary}
 }
 
@@ -77,6 +76,26 @@
 		\item[Caso d'Uso: ] #3
 	\end{description}
 }
+
+\newenvironment{requisiti}
+{
+	\newcommand{\requisito}[3]{
+		##1 & ##2 & ##3 \\ \hline
+	}
+	%begin
+	\tabulary{\textwidth}{|C|C|C|}
+	\hline
+	Requisiti & Settori & Caso d'Uso \\ \hline
+}
+{%end
+	\endtabulary
+	\vspace{10pt}
+}
+
+%\renewenvironment{requisiti}
+%{ \rule{1ex}{1ex}\hspace{\stretch{1}} }
+%{ \hspace{\stretch{1}}\rule{1ex}{1ex} }
+
 
 \title{Fattibilità e Vision}
 \author{Simone Mosciatti \& Gabriele Giudici}
@@ -249,82 +268,101 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
 \end{enumerate}
 
+
 \subsection{Requisiti funzionali Specifichi}
 
 \begin{enumerate}
 	\item La società richiede periodicamente ai soci il rinnovo delle quote associative via email, i soci pagano online oppure alla segreteria.
 	\begin{enumerate}
-		\item \RequisitiSpecifici
-				{Ogni 24 ore uno script automatico ricerca tutti gli iscritti la cui quota è in scadenza e invia a questi una email invitanto a rinnovare la quota in via telematica o in sede}
-				{Sistema Automatico, Soci Iscritti}
-				{Controllo Quote}
-		\item \RequisitiSpecifici
-				{Il servizio web della segreteria viene aggiornato in modo tale da evidenziare i soci che devono ancora pagare la quota}
-				{Sistema Automatico, Front Desk}
-				{Aggiornamento interfaccia web}
-		\item \RequisitiSpecifici
-				{Al pagamento della quota via online, il servizio web è automaticamente aggiornato per mostrare che il socio ha effettivamente rinnovato la quota}
-				{Banca, Sistema Automatico, Soci Iscritti, Front Desk}
-				{Pagamento Telematico}
-		\item \RequisitiSpecifici
-				{Al pagamento della quota in sede, il personale può marcare che il socio ha rinnovato la propria quota.}
-				{Soci Iscritti, Front Desk}
-				{Pagamento Manuale}
+		\item Ogni 24 ore uno script automatico ricerca tutti gli iscritti la cui quota è in scadenza e invia a questi una email invitanto a rinnovare la quota in via telematica o in sede
+		\item Il servizio web della segreteria viene aggiornato in modo tale da evidenziare i soci che devono ancora pagare la quota
+		\item Al pagamento della quota via online, il servizio web è automaticamente aggiornato per mostrare che il socio ha effettivamente rinnovato la quota
+		\item Al pagamento della quota in sede, il personale può marcare che il socio ha rinnovato la propria quota.
 	\end{enumerate}
+
 	\item La società dispone di un portale web dove i fruitori della piscina devono prenotarsi per sfruttare le corsie.
 	\begin{enumerate}
-		\item \RequisitiSpecifici
-				{La compilazione della richiesta è guidata dal sistema e permessa dopo autenticazione.}
-				{Soci Iscritti, Personale FIN}
-				{Prenotazione Corsie}
-		\item \RequisitiSpecifici
-				{I dati della prenotazione, previa verifica di disponibilità, sono automaticamente inseriti nel sistema}
-				{Sistema Automatico}
-				{Allocazioe Corsie}
-		\item \RequisitiSpecifici
-				{Viene inviata una email per ricordare l'avvenuta prenotazione}
-				{Sistema Automatico, Soci Iscritti, Personale FIN}
-				{Conferma Prenotazione}
-		\item \RequisitiSpecifici
-				{Personale autorizzato della società può consultare l'elenco delle prenotazioni per risolvere possibili equivoci a bordo vasca}
-				{Personale Autorizzato}
-				{Verifiche Prenotazioni}
+		\item La compilazione della richiesta è guidata dal sistema e permessa dopo autenticazione.
+		\item I dati della prenotazione, previa verifica di disponibilità, sono automaticamente inseriti nel sistema
+		\item Viene inviata una email per ricordare l'avvenuta prenotazione
+		\item Personale autorizzato della società può consultare l'elenco delle prenotazioni per risolvere possibili equivoci a bordo vasca
 	\end{enumerate}
 	\item La società dispone di un portale web nel quale è possibile fare richiesta di prenotazione dell'intera struttura per un periodo di tempo limitato. Il responsabile riceverà una notifica e sarà suo compito mettersi in contatto con l'ente esterno.
 	\begin{enumerate}
-		\item \RequisitiSpecifici
-				{Il prezzo e la disponibilità della struttura sono mostrati in un interfaccia web}
-				{Utente Esterno, Sistema Automatico}
-				{Visualizzazione Costi}
-		\item \RequisitiSpecifici
-				{L'utente compila un questionario guidata dalla piattaforma}
-				{Utent Esterno, Sistema Automatico}
-				{Richiesta Noleggio Struttura}
-		\item \RequisitiSpecifici
-				{Il sistema notifica al responsabile del reparto ``Rapporti con Enti Esterni'' l'avvenuta richiesta di prenotazione}
-				{Sistema Automatico, Responsabile del reparto ``Rapporti con Enti Esterni''}
-				{Notifica Responsabile}
+		\item Il prezzo e la disponibilità della struttura sono mostrati in un interfaccia web
+		\item L'utente compila un questionario guidata dalla piattaforma
+		\item Il sistema notifica al responsabile del reparto ``Rapporti con Enti Esterni'' l'avvenuta richiesta di prenotazione
 	\end{enumerate}
+	
+	
 	\item La società dispone di uno store online dedicato ad uso dei soci gestito da ACQUALIS
 	\begin{enumerate}
-		\item \RequisitiSpecifici
-				{Lo store si interfaccia in via telematica alla piattaforma di ACQUALIS la quale comunica i prodotti da mostrare, i prezzi e le quantità disponibili}
-				{Sistema Automatico, Soci Iscritti, ACQUALIS}
-				{Visulizzazione Prodotti}
-		\item \RequisitiSpecifici
-				{All'acquisto di un prodotto il pagamento viene gestito completamente da ACQUALIS}
-				{ACQUALIS, Soci Inscritti}
-				{Pagamento}
-		\item \RequisitiSpecifici
-				{Dopo l'acquisito viene richiesto se si preferisce ricevere il prodotto a casa o direttamente in piscina, tale richiesta viene inoltrata ad ACQUALIS}
-				{ACQUALIS, Soci Inscritti, Sistema Automatico}
-				{Estremi spedizione}
-		\item \RequisitiSpecifici
-				{Nel caso in cui venga deciso di ricevere il prodotto in piscina, il personale viene avvertito e tiene in consegna il prodotto finchè il socio non lo richiede.}
-				{Sistema Automatico, Personale, Soci Inscritti}
-				{Ricezione Pagamento In Loco}
+		\item Lo store si interfaccia in via telematica alla piattaforma di ACQUALIS la quale comunica i prodotti da mostrare, i prezzi e le quantità disponibili
+		\item All'acquisto di un prodotto il pagamento viene gestito completamente da ACQUALIS
+		\item Dopo l'acquisito viene richiesto se si preferisce ricevere il prodotto a casa o direttamente in piscina, tale richiesta viene inoltrata ad ACQUALIS
+		\item Nel caso in cui venga deciso di ricevere il prodotto in piscina, il personale viene avvertito e tiene in consegna il prodotto finchè il socio non lo richiede.
 	\end{enumerate}
 \end{enumerate}
+
+\begin{requisiti}
+	\requisito{Ricerca quote in scadenza}
+			{Sistema Automatico}
+			{Controllo Quote}
+	\requisito{Aggiornamento Sistema Segreteria}
+			{Sistema Automatico, Front Desk}
+			{Aggiornamento interfaccia web}
+	\requisito{Pagamento Quote Online}
+			{Banca, Sistema Automatico, Soci Iscritti, Front Desk}
+			{Pagamento Telematico}
+	\requisito{Pagamento Quota In Sede}
+			{Soci Iscritti, Front Desk}
+			{Pagamento Manuale}
+\end{requisiti}
+
+\begin{requisiti}
+	\requisito{Compilazione Prenotazione}
+			{Soci Iscritti, Personale FIN}
+			{Prenotazione Corsie}
+	\requisito{Inserimento prenotazione nel sistema}
+			{Sistema Automatico}
+			{Allocazioe Corsie}
+	\requisito{Comunicazione Avvenuto Prenotazione}
+			{Sistema Automatico, Soci Iscritti, Personale FIN}
+			{Conferma Prenotazione}
+	\requisito{Consultazione Prenotazioni}
+			{Personale Autorizzato}
+			{Verifiche Prenotazioni}
+\end{requisiti}
+
+
+
+\begin{requisiti}
+	\requisito{Visualizzazione Costi}
+			{Utente Esterno, Sistema Automatico}
+			{Visualizzazione Costi}
+	\requisito{Compilazione Questionario}
+			{Utente Esterno, Sistema Automatico}
+			{Richiesta Noleggio Struttura}
+	\requisito{Comunicazione con il responsabile}
+			{Sistema Automatico, Responsabile del reparto ``Rapporti con Enti Esterni''}
+			{Notifica Responsabile}
+\end{requisiti}
+
+
+\begin{requisiti}
+	\requisito{Visualizzazione prodotti disponibili}
+			{Sistema Automatico, Soci Iscritti, ACQUALIS}
+			{Visualizzazione Prodotti}
+	\requisito{Pagamento}
+			{ACQUALIS, Soci Inscritti}
+			{Pagamento}
+	\requisito{Richiesta estremi spedizione}
+			{ACQUALIS, Soci Inscritti, Sistema Automatico}
+			{Estremi spedizione}
+	\requisito{Ricezione spedizione in piscina}
+			{Sistema Automatico, Personale, Soci Inscritti}
+			{Ricezione spedizione in piscina}
+\end{requisiti}
 
 \section{Requisiti Non funzionali}
 
@@ -384,7 +422,6 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 \end{ganttchart}
 \end{landscape}
 \section{Architettura}
-
 
 \section{Architettura market-part-system (A)}
 
