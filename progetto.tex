@@ -13,8 +13,12 @@
 % See the LaTeX Companion or other references for full information.
 
 %%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\usepackage
+[a4paper,bindingoffset=0.2in,%
+ left=1.75in,right=1.75in,top=2in,bottom=2in,%
+ footskip=.25in]
+{geometry} % to change the page dimensions
+%\geometry{a4paper} % or letterpaper (US) or a5paper or....
 % \geometry{margin=2in} % for example, change the margins to 2 inches all round
 % \geometry{landscape} % set up the page for landscape
 %   read geometry.pdf for detailed page layout information
@@ -55,18 +59,24 @@
 
 \usepackage{tabulary}
 \usepackage{pgfgantt}
-\usepackage{lscape}
+\usepackage{pdflscape}
 \usepackage{enumitem}
 
+\definecolor{textblack}{RGB}{0, 25, 50}
+\definecolor{backgroundwhite}{RGB}{240,250,255}
+
+\linespread{1.2}
+
 \newcommand{\AnalisiSituazioneAttualeTabella}[5]{
-	\begin{tabulary}{\textwidth}{|C|C|}
+	\begin{tabular}[c]{|m{1in}|m{2.5in}|}
 		\hline
 		Settore & #1 \\ \hline
 		Attività & #2 \\ \hline
-		Situazione informativa & #3 \\ \hline
-		Modalità operativa & #4 \\ \hline
+		Situazione \\informativa & #3 \\ \hline
+		Modalità \\operativa & #4 \\ \hline
 		Obiettivo & #5 \\ \hline
-	\end{tabulary}
+	\end{tabular}
+	\vspace{20pt}
 }
 
 \newcommand{\RequisitiSpecifici}[3]{
@@ -83,27 +93,36 @@
 		##1 & ##2 & ##3 \\ \hline
 	}
 	%begin
-	\tabulary{\textwidth}{|C|C|C|}
+	\tabulary{\textwidth}{|m{1in}|m{2in}|m{1.5in}|}
 	\hline
 	Requisiti & Settori & Caso d'Uso \\ \hline
 }
 {%end
 	\endtabulary
-	\vspace{10pt}
+	\vspace{20pt}
 }
 
 %\renewenvironment{requisiti}
 %{ \rule{1ex}{1ex}\hspace{\stretch{1}} }
 %{ \hspace{\stretch{1}}\rule{1ex}{1ex} }
 
+%\setlength{\textwidth}{350pt}
+%\setlength{\marginparwidth}{0pt}
 
 \title{Fattibilità e Vision}
-\author{Simone Mosciatti \& Gabriele Giudici}
+\author{Gabriele Giudici \& Simone Mosciatti}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
+\color{textblack}
+\pagecolor{backgroundwhite}
+
 \maketitle
+
+\tableofcontents
+
+
 
 \section{Obiettivi}
 
@@ -137,6 +156,7 @@ Si vogliono introdurre diverse funzionalità:
 	\item Possibilità di prenotare corsie per gli allenamenti, sia da parte della FIN che da parte dei normali fruitori della piscina.
 	\item Possibilità di prenotare l'intera struttura per manifestazioni ed eventi.
 	\item Creazione di store online integrato di ACQUALIS.
+
 \subsection*{Stackeholder}
 
 \begin{itemize}
@@ -170,6 +190,8 @@ Il sistema è gia integrato con un centro medico della zona che gestisce le visi
 \end{enumerate}
 
 \section{Analisi della situazione attuale}
+
+La situazione attuale è la seguente:
 
 \AnalisiSituazioneAttualeTabella
 	{Amministrazione Attività Sportive}
@@ -368,7 +390,7 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\item[Qualità dei dati] Dati aggiornati al completamento delle richieste
 	\item[Efficienza] Massimo tempo di risposta ad ogni richiesta web 2sec, 90 percentile massimo a 0.5sec
 	\item[Efficacia] Netto snellimento delle pratiche burocratiche, riduzione dei conflitti nel piano vasca, riduzione del sovraffolamento.
-	\item[Robustezza] Possibile downtime programmato ogni giorno tra le 01:00 e le 02:00, affidabilità con 0.999 \%
+	\item[Robustezza] Possibile downtime programmato per manutenzione di massimo tre ore ogni 6 mesi, affidabilità con 0.999 \%
 	\item[Sicurezza] Non memorizzazione di dati sensibile degli utenti, in particolare evitare la memorizzazione di numero, codice di sicurezza e data di scadenza delle carte di credito.
 	\item[Disponibilità] Servizio consultabile 24/7/365
 	\item[Usabilità] Usabilità da dispositivi mobile e fissi, massimo 6 click per raggiungere ogni funzione, massimo 2 click per raggiungere le 5 funzioni più usate. Compatibilità con i maggiori browser IE7, Chrome, Firefox, Opera.
@@ -429,6 +451,8 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 % gestione possibili cambiamenti 20gg
 % gestione progetto 118gg
 \begin{landscape}
+\centering
+\hspace{2cm}
 \begin{ganttchart}[
 	canvas/.style={rotate=45},
 	hgrid,
@@ -471,6 +495,7 @@ Molti features del Sistema Informativo migliorano l' efficienza della associazio
 	\ganttlink[link mid = 0.25, link type = dr]{elem13}{elem14}
 \end{ganttchart}
 \end{landscape}
+
 \section{Architettura}
 
 \section{Architettura market-part-system (A)}
