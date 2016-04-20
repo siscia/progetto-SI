@@ -15,7 +15,7 @@
 %%% PAGE DIMENSIONS
 \usepackage
 [a4paper,bindingoffset=0.2in,%
- left=1.75in,right=1.75in,top=2in,bottom=2in,%
+ left=1.55in,right=1.55in,top=2in,bottom=2in,%
  footskip=.25in]
 {geometry} % to change the page dimensions
 %\geometry{a4paper} % or letterpaper (US) or a5paper or....
@@ -409,102 +409,12 @@ Date le piccole dimensioni della società è chiaro che tutti i reparti saranno 
 
 %sicurezza, performace, usabilità
 
+\begin{landscape}
+
 \section{Gantt}
 
-\newganttlinktype{jumpOneConnectStart}{
-	\ganttsetstartanchor{on bottom=0.5}
-	\ganttsetendanchor{on left}
-	\draw [/pgfgantt/link]
-	% first segment (down)
-	(\xLeft, \yUpper) --
-	(\xLeft, \yUpper - \ganttvalueof{y unit chart} / 4) --
-	(\xRight + \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 5, 
-		\yUpper - \ganttvalueof{y unit chart} / 4) --
-	(\xRight + \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 5, 
-		\yUpper - \ganttvalueof{y unit chart} * 1.3) --
-	(\xRight - \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 2, 
-		\yUpper - \ganttvalueof{y unit chart} * 1.3) --
-	(\xRight - \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 2, 
-		\yLower) --
-	(\xRight, \yLower);
-}
+\includegraphics[scale=0.6]{Gantt}
 
-
-\newganttlinktype{middleToStart}{
-	\ganttsetstartanchor{on bottom=0.5}
-	\ganttsetendanchor{on left}
-	\draw [/pgfgantt/link]
-	% first segment (down)
-	(\xLeft, \yUpper) --
-	(\xLeft, \yUpper - \ganttvalueof{y unit chart} / 4) --
-%	(\xRight + \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 5, 
-%		\yUpper - \ganttvalueof{y unit chart} / 4) --
-%	(\xRight + \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 5, 
-%		\yUpper - \ganttvalueof{y unit chart} * 1.3) --
-	(\xRight - \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 2, 
-		\yUpper - \ganttvalueof{y unit chart} / 4) --
-	(\xRight - \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 2, 
-		\yUpper - \ganttvalueof{y unit chart} * 1.3) --
-	(\xRight - \ganttvalueof{link bulge} * \ganttvalueof{x unit} * 2, 
-		\yLower) --
-	(\xRight, \yLower);
-}
-
-% studio di fattibilità 11gg
-% pianificazione 13gg
-% identificazione e analisi requisiti 15gg
-% definizione architettura 12gg
-% implementazione 30gg
-%definizione UI|UX 11gg
-% implementazione UI|UX 30gg
-% testing 21gg
-% sviluppo ambiente 6gg
-% gestione possibili cambiamenti 20gg
-% gestione progetto 118gg
-\begin{landscape}
-\centering
-\hspace{2cm}
-\begin{ganttchart}[
-	canvas/.style={rotate=45},
-	hgrid,
-	vgrid,
-	time slot format=simple,
-	x unit = 0.13cm,
-	y unit chart = 0.8cm,
-	link tolerance = 0,
-	link bulge = 0.2cm,
-]{0}{128}
-	\gantttitlecalendar{month} \\
-	\ganttbar{Studio di Fattibilità}{0}{11} \\
-	\ganttgroup{Pianificazione}{12}{53} \\ 
-	\ganttbar{Identificazione e analisi requisiti}{12}{61} \\
-	\ganttbar{Analisi Dati}{12}{20} \\
-	\ganttbar{Definizione Architettura}{20}{73} \\
-	\ganttbar{Definizione UI - UX}{20}{73} \\
-	\ganttgroup{Implementazione}{53}{84} \\ 
-	\ganttbar{Implementazione Software}{53}{84} \\
-	\ganttbar{Implementazione UI - UX}{53}{84} \\
-	\ganttgroup{Testing}{58}{106} \\
-	\ganttbar{Preparazione CI}{58}{62} \\
-	\ganttbar{Continuos Integration}{63}{84} \\
-	\ganttbar{Test Unitari}{58}{84} \\
-	\ganttbar{Studio sul Campo}{75}{106} \\
-	\ganttbar{Gestione Possibili Cambiamenti}{98}{127} \\
-	\ganttgroup{Gestione Progetto}{0}{127} \\
-	\ganttlink[link mid = 0.27]{elem0}{elem2}
-	\ganttlink[link mid = 0.18]{elem0}{elem3}
-	\ganttlink[link mid = 0.5]{elem3}{elem4}
-	\ganttlink[link mid = 0.25]{elem3}{elem5}
-	\ganttlink[link mid = 0.25, link bulge=5, link type = jumpOneConnectStart]{elem4}{elem7}
-	\ganttlink[link type = dr]{elem5}{elem8}
-	\ganttlink[link mid = 0.25, link type = f-s]{elem10}{elem11}
-	\ganttlink[link mid = 0.25, link type =  jumpOneConnectStart]{elem7}{elem12}
-	\ganttlink[link mid = 0.13, link type = middleToStart]{elem8}{elem12}
-	\ganttlink[link mid = 0.25, link type =  jumpOneConnectStart]{elem7}{elem10}
-	\ganttlink[link mid = 0.25, link type = middleToStart]{elem8}{elem10}
-	\ganttlink[link mid = 0.25, link type = dr]{elem12}{elem13}
-	\ganttlink[link mid = 0.25, link type = dr]{elem13}{elem14}
-\end{ganttchart}
 \end{landscape}
 
 \section{Architettura}
