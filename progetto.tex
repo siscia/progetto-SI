@@ -317,7 +317,8 @@ Date le piccole dimensioni della società è chiaro che tutti i reparti saranno 
 	\begin{enumerate}
 		\item La compilazione della richiesta è guidata dal sistema e permessa dopo autenticazione.
 		\item I dati della prenotazione, previa verifica di disponibilità, sono automaticamente inseriti nel sistema
-		\item Viene inviata una email per ricordare l'avvenuta prenotazione
+		\item Un altro semplice form guidato permette di eliminare le prenotazioni fatte.
+		\item Al termine di ogni prenotazione o eliminazione di prenotazione viene inviata una email per ricordare all'utente la sua scelta.
 		\item Personale autorizzato della società può consultare l'elenco delle prenotazioni per risolvere possibili equivoci a bordo vasca
 	\end{enumerate}
 	\item La società dispone di un portale web nel quale è possibile fare richiesta di prenotazione dell'intera struttura per un periodo di tempo limitato. Il responsabile riceverà una notifica e sarà suo compito mettersi in contatto con l'ente esterno.
@@ -359,9 +360,12 @@ Date le piccole dimensioni della società è chiaro che tutti i reparti saranno 
 	\requisito{Inserimento prenotazione nel sistema}
 			{Sistema Automatico}
 			{Allocazioe Corsie}
-	\requisito{Comunicazione Avvenuto Prenotazione}
+	\requisito{Eliminazione Prenotazione}
+			{Soci Iscritti, Personale FIN}
+			{Eliminazione Prenotazione}	
+	\requisito{Notifica Nuova/Eliminata Prenotazione}
 			{Sistema Automatico, Soci Iscritti, Personale FIN}
-			{Conferma Prenotazione}
+			{Notifica Nuova/Eliminata Prenotazione}
 	\requisito{Consultazione Prenotazioni}
 			{Personale Autorizzato}
 			{Verifiche Prenotazioni}
